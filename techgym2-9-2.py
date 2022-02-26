@@ -1,4 +1,5 @@
 import random
+import math
 
 data = [['見','貝'], ['土','士'], ['眠','眼']]
 level = 1
@@ -40,17 +41,25 @@ def change_input_number(input_str):
   input_number = row_number * 3 + col_number
   return input_number
 
+def change_string(number):
+  number_to_moji={0:'A',1:'B',2:'C'}
+  correct_col=number_to_moji[number % 3]
+  correct_row=math.floor(number/3)+1
+  correct_number=correct_col + str(correct_row)
+  return correct_number
+
 def is_correct_number(mistake_number, input_number):
   if mistake_number == input_number:
     return True
   else:
     return False
 
-def view_result(is_correct):
+def view_result(is_correct,correct_number):
   if is_correct:
     print('正解！')
   else:
     print('不正解')
+    print('正解は'+ correct_number)
 
 def play():
   section_message()
@@ -60,7 +69,8 @@ def play():
   input_number = change_input_number(choice)
   print('デバッグ:input_number = ' + str(input_number))
   is_correct = is_correct_number(mistake_number, input_number)
-  view_result(is_correct)
+  correct_number=change_string(mistake_number)
+  view_result(is_correct,correct_number)
 
 start_message()
 play()
