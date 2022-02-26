@@ -15,20 +15,19 @@ def view_question():
   print('デバッグ:mistake_number = ' + str(mistake_number))
   question = data[choice_data]
   print(question)
-
-  print('/|A B C')
-  print('ーーーー')
   i = 0
   j = 0
+  print('／｜A B C')
+  print('ーーーーー')
   while i < 3:
-    question_str = ''
+    question_str = str(i + 1) + '｜'
     while j < 3:
       if (i * 3 + j) == mistake_number:
         question_str += question[1]
       else:
         question_str += question[0]
       j += 1
-    print(str(i+1)+'|'+question_str)
+    print(question_str)
     i += 1
     j = 0
 
