@@ -11,16 +11,16 @@ def section_message():
 
 def view_question():
   choice_data = random.randint(0, 2)
+  mistake_number = random.randint(0, 8)
+  print('デバッグ:mistake_number = ' + str(mistake_number))
   question = data[choice_data]
-  mistake_number=random.randint(0,8)
-  print('デバッグ:choice = ' + str(mistake_number))
   print(question)
   i = 0
   j = 0
   while i < 3:
     question_str = ''
     while j < 3:
-      if i*3+j==mistake_number:
+      if (i * 3 + j) == mistake_number:
         question_str += question[1]
       else:
         question_str += question[0]
