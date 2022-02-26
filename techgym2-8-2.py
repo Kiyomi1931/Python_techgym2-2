@@ -30,13 +30,13 @@ def view_question():
     print(question_str)
     i += 1
     j = 0
-  
-def change_input_number(input_str):
-  moji_number={'A':0,'B':1,'C':2}
-  input_str1=int(moji_number[input_str[0]])
-  input_str2=int(input_str[1])-1
 
-  input_number=input_str2*3 + input_str1
+def change_input_number(input_str):
+  str_data = { 'A':0, 'B':1, 'C':2 }
+  input_str_split = list(input_str)
+  col_number = str_data[input_str_split[0]]
+  row_number = int(input_str_split[1]) - 1
+  input_number = row_number * 3 + col_number
   return input_number
 
 def play():
@@ -44,7 +44,7 @@ def play():
   view_question()
   choice = input('(例:A1)')
   print('デバッグ:choice = ' + choice)
-  input_number=change_input_number(choice)
+  input_number = change_input_number(choice)
   print('デバッグ:input_number = ' + str(input_number))
 
 start_message()
