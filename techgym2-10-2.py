@@ -41,25 +41,25 @@ def change_input_number(input_str):
   input_number = row_number * 3 + col_number
   return input_number
 
-def change_string(number):
-  number_to_moji={0:'A',1:'B',2:'C'}
-  correct_col=number_to_moji[number % 3]
-  correct_row=math.floor(number/3)+1
-  correct_number=correct_col + str(correct_row)
-  return correct_number
-
 def is_correct_number(mistake_number, input_number):
   if mistake_number == input_number:
     return True
   else:
     return False
 
-def view_result(is_correct,correct_number):
+def view_result(is_correct, mistake_number):
   if is_correct:
     print('正解！')
   else:
     print('不正解')
-    print('正解は'+ correct_number)
+    print('正解は ' + change_string(mistake_number))
+
+def change_string(number):
+  number_data = ['A', 'B', 'C']
+  col_number = number % 3
+  row_number = math.floor(number / 3) + 1
+  string = number_data[col_number] + str(row_number)
+  return string
 
 def play():
   section_message()
@@ -69,8 +69,7 @@ def play():
   input_number = change_input_number(choice)
   print('デバッグ:input_number = ' + str(input_number))
   is_correct = is_correct_number(mistake_number, input_number)
-  correct_number=change_string(mistake_number)
-  view_result(is_correct,correct_number)
+  view_result(is_correct, mistake_number)
 
 start_message()
 play()
