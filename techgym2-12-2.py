@@ -21,18 +21,15 @@ def view_question():
   print(question)
   i = 0
   j = 0
-
-  question_col1='／｜'
-  question_col2='ーー'
-
+  question_str1 = '／｜'
+  question_str2 = 'ーー'
   while i < col:
-    question_col1+=number_data[i]+' '
-    question_col2+='ー'
-    i+=1
-  print(question_col1)
-  print(question_col2)
-
-  i=0
+    question_str1 += number_data[i] + ' '
+    question_str2 += 'ー'
+    i += 1
+  print(question_str1)
+  print(question_str2)
+  i = 0
   while i < row:
     question_str = str(i + 1) + '｜'
     while j < col:
